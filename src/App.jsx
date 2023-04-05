@@ -13,7 +13,9 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(CURRENCY_URL);
-      const filterData = data.filter((item) => item.cc === 'USD' || item.cc === 'EUR');
+      const filterData = data.filter(
+        (item) => item.cc === 'USD' || item.cc === 'EUR' || item.cc === 'PLN' || item.cc === 'GBP',
+      );
       const result = filterData.map(({ r030, txt, exchangedate, ...result }) => result);
       setCurrencyList([...result, { rate: 1, cc: 'UAH' }]);
     };
