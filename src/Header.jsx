@@ -12,7 +12,7 @@ const Header = ({ currency }) => {
             <span className="text-green-600 font-bold text-xl flex items-center  min-w-[160px]">
               USD:{' '}
               {currency.length ? (
-                <span>{toFixed(currency[0].rate, 2)} UAH</span>
+                <span>{toFixed(currency.find(item => item.cc === 'USD').rate, 2)} UAH</span>
               ) : (
                 <img src={gif} className="w-[16px] h-[16px] ml-5" alt="" />
               )}
@@ -20,7 +20,7 @@ const Header = ({ currency }) => {
             <span className="text-blue-600 font-bold text-xl flex items-center  min-w-[160px]">
               EUR:{' '}
               {currency.length ? (
-                <span>{toFixed(currency[1].rate, 2)} UAH</span>
+                <span>{toFixed(currency.find(item => item.cc === 'EUR').rate, 2)} UAH</span>
               ) : (
                 <img src={gif} className="w-[16px] h-[16px] ml-5" alt="" />
               )}
